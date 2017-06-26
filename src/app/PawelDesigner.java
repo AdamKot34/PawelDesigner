@@ -1,4 +1,4 @@
-package app; //nazwa pakietu
+﻿package app; //nazwa pakietu
 
 import java.util.Scanner; //import bibliotek
 
@@ -9,7 +9,7 @@ import java.util.Scanner; //import bibliotek
 public class PawelDesigner {
 	
 	/**
-	 * Metoda systemRozmyty() zawiera dwa wejścia.
+	 * Metoda systemRozmyty() zawiera dwa wejścia i jedno wyjście.
 	 */
 	public void systemRozmyty()
 	{
