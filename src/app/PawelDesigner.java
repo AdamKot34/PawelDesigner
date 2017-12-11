@@ -1,155 +1,224 @@
 package app; //nazwa pakietu
 
-import java.util.Scanner; //import bibliotek
+import java.awt.event.*; //import bibliotek
+import javax.swing.*;
 
 /**
- * Klasa PawelDesigner zawiera metody systemRozmyty() i main().
+ * Klasa PawelDesigner zawiera konstruktor i metody actionPerformed() i main().
  * @author Paweł Dudzik.
  */
-public class PawelDesigner {
-	
+public class PawelDesigner extends JFrame implements ActionListener
+{
+	private static final long serialVersionUID = 0; //serializacja programu
 	/**
-	 * Metoda systemRozmyty() zawiera dwa wejścia i jedno wyjście.
+	 * Konstruktor służy do stworzenia okna programu.
 	 */
-	public void systemRozmyty()
+	public PawelDesigner()
 	{
-		try {
-			System.out.println("Symulator systemu rozmytego:");
-			System.out.println("Podaj temperaturę w stopniach Cejcjusza:");
-			Scanner wejscie1 = new Scanner(System.in);
-			double temperatura = wejscie1.nextDouble();
-			double zimna = 0, letnia = 0, ciepla = 0, goraca = 0;
-			if (temperatura >= 0 && temperatura <= 5)
+		setTitle("PawelDesigner");
+		setSize(750,130);
+		setLocation(350,200);
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JPanel panel = new JPanel();
+		getContentPane().add(panel);
+		JLabel etykieta0 = new JLabel("X0");
+		panel.add(etykieta0);
+		JSlider slider0 = new JSlider(JSlider.HORIZONTAL, 0, 10, 0);
+		slider0.setMajorTickSpacing(5);
+		slider0.setMinorTickSpacing(1);
+		slider0.setPaintLabels(true);
+		slider0.setPaintTicks(true);
+		panel.add(slider0);
+		JLabel etykieta1 = new JLabel("X1");
+		panel.add(etykieta1);
+		JSlider slider1 = new JSlider(JSlider.HORIZONTAL, 0, 10, 0);
+		slider1.setMajorTickSpacing(5);
+		slider1.setMinorTickSpacing(1);
+		slider1.setPaintLabels(true);
+		slider1.setPaintTicks(true);
+		panel.add(slider1);
+		JLabel etykieta2 = new JLabel("X2");
+		panel.add(etykieta2);
+		JSlider slider2 = new JSlider(JSlider.HORIZONTAL, 0, 10, 0);
+		slider2.setMajorTickSpacing(5);
+		slider2.setMinorTickSpacing(1);
+		slider2.setPaintLabels(true);
+		slider2.setPaintTicks(true);
+		panel.add(slider2);
+		JButton przycisk = new JButton("Oblicz");
+		panel.add(przycisk);
+		JLabel etykieta3 = new JLabel("Y0");
+		panel.add(etykieta3);
+		JProgressBar pasek0 = new JProgressBar();
+		pasek0.setStringPainted(true);
+		panel.add(pasek0);
+		JLabel etykieta4 = new JLabel("Y1");
+		panel.add(etykieta4);
+		JProgressBar pasek1 = new JProgressBar();
+		pasek1.setStringPainted(true);
+		panel.add(pasek1);
+		przycisk.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent zdarzenie)
 			{
-				zimna = 1;
-				letnia = 0;
-				ciepla = 0;
-				goraca = 0;
+				if (zdarzenie.getSource()==przycisk)
+				{
+					int x0 = slider0.getValue();
+					int x1 = slider1.getValue();
+					int x2 = slider2.getValue();
+					if (x0<3 && x1<3 && x2<3)
+					{
+						pasek0.setValue(0);
+						pasek1.setValue(0);
+					}
+					if (x0<3 && x1<3 && x2>=3 && x2<=7)
+					{
+						pasek0.setValue(10);
+						pasek1.setValue(30);
+					}
+					if (x0<3 && x1<3 && x2>7)
+					{
+						pasek0.setValue(30);
+						pasek1.setValue(70);
+					}
+					if (x0<3 && x1>=3 && x1<=7 && x2<3)
+					{
+						pasek0.setValue(10);
+						pasek1.setValue(30);
+					}
+					if (x0<3 && x1>=3 && x1<=7 && x2>=3 && x2<=7)
+					{
+						pasek0.setValue(30);
+						pasek1.setValue(70);
+					}
+					if (x0<3 && x1>=3 && x1<=7 && x2>7)
+					{
+						pasek0.setValue(50);
+						pasek1.setValue(100);
+					}
+					if (x0<3 && x1>7 && x2<3)
+					{
+						pasek0.setValue(30);
+						pasek1.setValue(70);
+					}
+					if (x0<3 && x1>7 && x2>=3 && x2<=7)
+					{
+						pasek0.setValue(50);
+						pasek1.setValue(100);
+					}
+					if (x0<3 && x1>7 && x2>7)
+					{
+						pasek0.setValue(70);
+						pasek1.setValue(70);
+					}
+					if (x0>=3 && x0<=7 && x1<3 && x2<3)
+					{
+						pasek0.setValue(10);
+						pasek1.setValue(30);
+					}
+					if (x0>=3 && x0<=7 && x1<3 && x2>=3 && x2<=7)
+					{
+						pasek0.setValue(30);
+						pasek1.setValue(70);
+					}
+					if (x0>=3 && x0<=7 && x1<3 && x2>7)
+					{
+						pasek0.setValue(50);
+						pasek1.setValue(100);
+					}
+					if (x0>=3 && x0<=7 && x1>=3 && x1<=7 && x2<3)
+					{
+						pasek0.setValue(30);
+						pasek1.setValue(70);
+					}
+					if (x0>=3 && x0<=7 && x1>=3 && x1<=7 && x2>=3 && x2<=7)
+					{
+						pasek0.setValue(50);
+						pasek1.setValue(100);
+					}
+					if (x0>=3 && x0<=7 && x1>=3 && x1<=7 && x2>7)
+					{
+						pasek0.setValue(70);
+						pasek1.setValue(70);
+					}
+					if (x0>=3 && x0<=7 && x1>7 && x2<3)
+					{
+						pasek0.setValue(50);
+						pasek1.setValue(100);
+					}
+					if (x0>=3 && x0<=7 && x1>7 && x2>=3 && x2<=7)
+					{
+						pasek0.setValue(70);
+						pasek1.setValue(70);
+					}
+					if (x0>=3 && x0<=7 && x1>7 && x2>7)
+					{
+						pasek0.setValue(90);
+						pasek1.setValue(30);
+					}
+					if (x0>7 && x1<3 && x2<3)
+					{
+						pasek0.setValue(30);
+						pasek1.setValue(70);
+					}
+					if (x0>7 && x1<3 && x2>=3 && x2<=7)
+					{
+						pasek0.setValue(50);
+						pasek1.setValue(100);
+					}
+					if (x0>7 && x1<3 && x2>7)
+					{
+						pasek0.setValue(70);
+						pasek1.setValue(70);
+					}
+					if (x0>7 && x1>=3 && x1<=7 && x2<3)
+					{
+						pasek0.setValue(50);
+						pasek1.setValue(100);
+					}
+					if (x0>7 && x1>=3 && x1<=7 && x2>=3 && x2<=7)
+					{
+						pasek0.setValue(70);
+						pasek1.setValue(70);
+					}
+					if (x0>7 && x1>=3 && x1<=7 && x2>7)
+					{
+						pasek0.setValue(90);
+						pasek1.setValue(30);
+					}
+					if (x0>7 && x1>7 && x2<3)
+					{
+						pasek0.setValue(70);
+						pasek1.setValue(70);
+					}
+					if (x0>7 && x1>7 && x2>=3 && x2<=7)
+					{
+						pasek0.setValue(90);
+						pasek1.setValue(30);
+					}
+					if (x0>7 && x1>7 && x2>7)
+					{
+						pasek0.setValue(100);
+						pasek1.setValue(0);
+					}
+				}
 			}
-			if (temperatura >= 5 && temperatura <= 15)
-			{
-				zimna = (15-temperatura)/10;
-				letnia = (temperatura-5)/10;
-				ciepla = 0;
-				goraca = 0;
-			}
-			if (temperatura >= 15 && temperatura <= 25)
-			{
-				zimna = 0;
-				letnia = (25-temperatura)/10;
-				ciepla = (temperatura-15)/10;
-				goraca = 0;
-			}
-			if (temperatura >= 25 && temperatura <= 35)
-			{
-				zimna = 0;
-				letnia = 0;
-				ciepla = (35-temperatura)/10;
-				goraca = (temperatura-25)/10;
-			}
-			double max1 = 0;
-			String x1 = "nieokreślona";
-			if (zimna > max1)
-			{
-				max1 = zimna;
-				x1 = "zimna";
-			}
-			if (letnia > max1)
-			{
-				max1 = letnia;
-				x1 = "letnia";
-			}
-			if (ciepla > max1)
-			{
-				max1 = ciepla;
-				x1 = "ciepła";
-			}
-			if (goraca > max1)
-			{
-				max1 = goraca;
-				x1 = "gorąca";
-			}
-			System.out.println("Temperatura jest "+x1+".");
-			System.out.println("Podaj wilgotność w procentach:");
-			double wilgotnosc = wejscie1.nextDouble();
-			double mala = 0, srednia = 0, duza = 0;
-			if (wilgotnosc >= 0 && wilgotnosc <= 25)
-			{
-				mala = 1;
-				srednia = 0;
-				duza = 0;
-			}
-			if (wilgotnosc >= 25 && wilgotnosc <= 50)
-			{
-				mala = (50-wilgotnosc)/25;
-				srednia = (wilgotnosc-25)/25;
-				duza = 0;
-			}
-			if (wilgotnosc >= 50 && wilgotnosc <= 100)
-			{
-				mala = 0;
-				srednia = (100-wilgotnosc)/50;
-				duza = (wilgotnosc-50)/50;
-			}
-			double max2 = 0;
-			String x2 = "nieokreślona";
-			if (mala > max2)
-			{
-				max2 = mala;
-				x2 = "mała";
-			}
-			if (srednia > max2)
-			{
-				max2 = srednia;
-				x2 = "średnia";
-			}
-			if (duza > max2)
-			{
-				max2 = duza;
-				x2 = "duża";
-			}
-			System.out.println("Wilgotność jest "+x2+".");
-			String y = "nieokreślona";
-			if (x1 == "zimna" && x2 == "duża"
-					|| x1 == "letnia" && x2 == "duża")
-			{
-				y = "zerowa";
-			}
-			if (x1 == "zimna" && x2 == "średnia"
-					|| x1 == "letnia" && x2 == "średnia"
-					|| x1 == "ciepła" && x2 == "duża")
-			{
-				y = "mała";
-			}
-			if (x1 == "zimna" && x2 == "mała"
-					|| x1 == "ciepła" && x2 == "średnia"
-					|| x1 == "gorąca" && x2 == "duża")
-			{
-				y = "średnia";
-			}
-			if (x1 == "letnia" && x2 == "mała" 
-					|| x1 == "ciepła" && x2 == "mała"
-					|| x1 == "gorąca" && x2 == "średnia")
-			{
-				y = "duża";
-			}
-			if (x1 == "gorąca" && x2 == "mała")
-			{
-				y = "maksymalna";
-			}
-			System.out.println("Intensywność podlewania jest "+y+".");
-			wejscie1.close();
-		} catch (Exception e) {
-			System.out.println("Błąd! Uruchom symulator ponownie.");
-		}
+		});
 	}
-	
+	/**
+	 * Metoda actionPerformed() jest potrzebna do działania programu.
+	 * @param zdarzenie Służy do obsługi zdarzeń.
+	 */
+	public void actionPerformed(ActionEvent zdarzenie)
+	{
+	}
 	/**
 	 * Metoda main() inicjuje działanie programu.
 	 * @param args Tablica argumentów.
 	 */
 	public static void main(String[] args) {
 		PawelDesigner program = new PawelDesigner();
-		program.systemRozmyty();
+		program.setVisible(true);
 	}
 }
