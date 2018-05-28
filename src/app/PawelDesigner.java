@@ -1,6 +1,7 @@
 package app; //nazwa pakietu
 
-import java.awt.event.*; //import bibliotek
+import java.awt.*; //import bibliotek
+import java.awt.event.*;
 import javax.swing.*;
 
 /**
@@ -16,8 +17,8 @@ public class PawelDesigner extends JFrame implements ActionListener
 	public PawelDesigner()
 	{
 		setTitle("PawelDesigner");
-		setSize(250,450);
-		setLocation(350,200);
+		setSize(250,1020);
+		setLocation(350,0);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel panel = new JPanel();
@@ -106,6 +107,24 @@ public class PawelDesigner extends JFrame implements ActionListener
 					JRadioButton r8 = new JRadioButton();
 					r8.setEnabled(false);
 					panel.add(r8);
+					JLabel r0e = new JLabel("R0: IF X0 = M AND X1 = M THEN Y0 = BM");
+					panel.add(r0e);
+					JLabel r1e = new JLabel("R1: IF X0 = M AND X1 = S THEN Y0 = M");
+					panel.add(r1e);
+					JLabel r2e = new JLabel("R2: IF X0 = M AND X1 = D THEN Y0 = S");
+					panel.add(r2e);
+					JLabel r3e = new JLabel("R3: IF X0 = S AND X1 = M THEN Y0 = M");
+					panel.add(r3e);
+					JLabel r4e = new JLabel("R4: IF X0 = S AND X1 = S THEN Y0 = S");
+					panel.add(r4e);
+					JLabel r5e = new JLabel("R5: IF X0 = S AND X1 = D THEN Y0 = D");
+					panel.add(r5e);
+					JLabel r6e = new JLabel("R6: IF X0 = D AND X1 = M THEN Y0 = S");
+					panel.add(r6e);
+					JLabel r7e = new JLabel("R7: IF X0 = D AND X1 = S THEN Y0 = D");
+					panel.add(r7e);
+					JLabel r8e = new JLabel("R8: IF X0 = D AND X1 = D THEN Y0 = BD");
+					panel.add(r8e);
 					JLabel etykietay0 = new JLabel("           Y0");
 					panel.add(etykietay0);
 					JProgressBar pasek0 = new JProgressBar();
@@ -132,6 +151,15 @@ public class PawelDesigner extends JFrame implements ActionListener
 								r6.setSelected(false);
 								r7.setSelected(false);
 								r8.setSelected(false);
+								r0e.setForeground(Color.LIGHT_GRAY);
+								r1e.setForeground(Color.LIGHT_GRAY);
+								r2e.setForeground(Color.LIGHT_GRAY);
+								r3e.setForeground(Color.LIGHT_GRAY);
+								r4e.setForeground(Color.LIGHT_GRAY);
+								r5e.setForeground(Color.LIGHT_GRAY);
+								r6e.setForeground(Color.LIGHT_GRAY);
+								r7e.setForeground(Color.LIGHT_GRAY);
+								r8e.setForeground(Color.LIGHT_GRAY);
 								int x0 = slider0.getValue();
 								double x0M = 0, x0S = 0, x0D = 0;
 								if (x0 == 0)
@@ -252,6 +280,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0M > 0 && x1M > 0)
 								{
 									r0.setSelected(true);
+									r0e.setForeground(Color.BLACK);
 									yBM = x0M;
 									if (x1M < yBM)
 									{
@@ -261,6 +290,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0M > 0 && x1S > 0)
 								{
 									r1.setSelected(true);
+									r1e.setForeground(Color.BLACK);
 									yM1 = x0M;
 									if (x1S < yM1)
 									{
@@ -270,6 +300,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0M > 0 && x1D > 0)
 								{
 									r2.setSelected(true);
+									r2e.setForeground(Color.BLACK);
 									yS1 = x0M;
 									if (x1D < yS1)
 									{
@@ -279,6 +310,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0S > 0 && x1M > 0)
 								{
 									r3.setSelected(true);
+									r3e.setForeground(Color.BLACK);
 									yM2 = x0S;
 									if (x1M < yM2)
 									{
@@ -288,6 +320,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0S > 0 && x1S > 0)
 								{
 									r4.setSelected(true);
+									r4e.setForeground(Color.BLACK);
 									yS2 = x0S;
 									if (x1S < yS2)
 									{
@@ -297,6 +330,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0S > 0 && x1D > 0)
 								{
 									r5.setSelected(true);
+									r5e.setForeground(Color.BLACK);
 									yD1 = x0S;
 									if (x1D < yD1)
 									{
@@ -306,6 +340,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0D > 0 && x1M > 0)
 								{
 									r6.setSelected(true);
+									r6e.setForeground(Color.BLACK);
 									yS3 = x0D;
 									if (x1M < yS3)
 									{
@@ -315,6 +350,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0D > 0 && x1S > 0)
 								{
 									r7.setSelected(true);
+									r7e.setForeground(Color.BLACK);
 									yD2 = x0D;
 									if (x1S < yD2)
 									{
@@ -324,6 +360,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0D > 0 && x1D > 0)
 								{
 									r8.setSelected(true);
+									r8e.setForeground(Color.BLACK);
 									yBD = x0D;
 									if (x1D < yBD)
 									{
@@ -519,6 +556,81 @@ public class PawelDesigner extends JFrame implements ActionListener
 					JRadioButton r24 = new JRadioButton();
 					r24.setEnabled(false);
 					panel.add(r24);
+					JLabel r0e = new JLabel("R0: IF X0 = M AND X1 = M THEN Y0 = BM");
+					r0e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r0e);
+					JLabel r1e = new JLabel("R1: IF X0 = M AND X1 = M+ THEN Y0 = M-");
+					r1e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r1e);
+					JLabel r2e = new JLabel("R2: IF X0 = M AND X1 = S THEN Y0 = M");
+					r2e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r2e);
+					JLabel r3e = new JLabel("R3: IF X0 = M AND X1 = D- THEN Y0 = M+");
+					r3e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r3e);
+					JLabel r4e = new JLabel("R4: IF X0 = M AND X1 = D THEN Y0 = S");
+					r4e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r4e);
+					JLabel r5e = new JLabel("R5: IF X0 = M+ AND X1 = M THEN Y0 = M-");
+					r5e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r5e);
+					JLabel r6e = new JLabel("R6: IF X0 = M+ AND X1 = M+ THEN Y0 = M");
+					r6e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r6e);
+					JLabel r7e = new JLabel("R7: IF X0 = M+ AND X1 = S THEN Y0 = M+");
+					r7e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r7e);
+					JLabel r8e = new JLabel("R8: IF X0 = M+ AND X1 = D- THEN Y0 = S");
+					r8e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r8e);
+					JLabel r9e = new JLabel("R9: IF X0 = M+ AND X1 = D THEN Y0 = D-");
+					r9e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r9e);
+					JLabel r10e = new JLabel("R10: IF X0 = S AND X1 = M THEN Y0 = M");
+					r10e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r10e);
+					JLabel r11e = new JLabel("R11: IF X0 = S AND X1 = M+ THEN Y0 = M+");
+					r11e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r11e);
+					JLabel r12e = new JLabel("R12: IF X0 = S AND X1 = S THEN Y0 = S");
+					r12e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r12e);
+					JLabel r13e = new JLabel("R13: IF X0 = S AND X1 = D- THEN Y0 = D-");
+					r13e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r13e);
+					JLabel r14e = new JLabel("R14: IF X0 = S AND X1 = D THEN Y0 = D");
+					r14e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r14e);
+					JLabel r15e = new JLabel("R15: IF X0 = D- AND X1 = M THEN Y0 = M+");
+					r15e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r15e);
+					JLabel r16e = new JLabel("R16: IF X0 = D- AND X1 = M+ THEN Y0 = S");
+					r16e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r16e);
+					JLabel r17e = new JLabel("R17: IF X0 = D- AND X1 = S THEN Y0 = D-");
+					r17e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r17e);
+					JLabel r18e = new JLabel("R18: IF X0 = D- AND X1 = D- THEN Y0 = D");
+					r18e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r18e);
+					JLabel r19e = new JLabel("R19: IF X0 = D- AND X1 = D THEN Y0 = D+");
+					r19e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r19e);
+					JLabel r20e = new JLabel("R20: IF X0 = D AND X1 = M THEN Y0 = S");
+					r20e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r20e);
+					JLabel r21e = new JLabel("R21: IF X0 = D AND X1 = M+ THEN Y0 = D-");
+					r21e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r21e);
+					JLabel r22e = new JLabel("R22: IF X0 = D AND X1 = S THEN Y0 = D");
+					r22e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r22e);
+					JLabel r23e = new JLabel("R23: IF X0 = D AND X1 = D- THEN Y0 = D+");
+					r23e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r23e);
+					JLabel r24e = new JLabel("R24: IF X0 = D AND X1 = D THEN Y0 = BD");
+					r24e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r24e);
 					JLabel etykietay0 = new JLabel("           Y0");
 					panel.add(etykietay0);
 					JProgressBar pasek0 = new JProgressBar();
@@ -561,6 +673,31 @@ public class PawelDesigner extends JFrame implements ActionListener
 								r22.setSelected(false);
 								r23.setSelected(false);
 								r24.setSelected(false);
+								r0e.setForeground(Color.LIGHT_GRAY);
+								r1e.setForeground(Color.LIGHT_GRAY);
+								r2e.setForeground(Color.LIGHT_GRAY);
+								r3e.setForeground(Color.LIGHT_GRAY);
+								r4e.setForeground(Color.LIGHT_GRAY);
+								r5e.setForeground(Color.LIGHT_GRAY);
+								r6e.setForeground(Color.LIGHT_GRAY);
+								r7e.setForeground(Color.LIGHT_GRAY);
+								r8e.setForeground(Color.LIGHT_GRAY);
+								r9e.setForeground(Color.LIGHT_GRAY);
+								r10e.setForeground(Color.LIGHT_GRAY);
+								r11e.setForeground(Color.LIGHT_GRAY);
+								r12e.setForeground(Color.LIGHT_GRAY);
+								r13e.setForeground(Color.LIGHT_GRAY);
+								r14e.setForeground(Color.LIGHT_GRAY);
+								r15e.setForeground(Color.LIGHT_GRAY);
+								r16e.setForeground(Color.LIGHT_GRAY);
+								r17e.setForeground(Color.LIGHT_GRAY);
+								r18e.setForeground(Color.LIGHT_GRAY);
+								r19e.setForeground(Color.LIGHT_GRAY);
+								r20e.setForeground(Color.LIGHT_GRAY);
+								r21e.setForeground(Color.LIGHT_GRAY);
+								r22e.setForeground(Color.LIGHT_GRAY);
+								r23e.setForeground(Color.LIGHT_GRAY);
+								r24e.setForeground(Color.LIGHT_GRAY);
 								int x0 = slider0.getValue();
 								double x0M = 0, x0Mp = 0, x0S = 0, x0Dm = 0, x0D = 0;
 								if (x0 == 0)
@@ -685,6 +822,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0M > 0 && x1M > 0)
 								{
 									r0.setSelected(true);
+									r0e.setForeground(Color.BLACK);
 									yBM = x0M;
 									if (x1M < yBM)
 									{
@@ -694,6 +832,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0M > 0 && x1Mp > 0)
 								{
 									r1.setSelected(true);
+									r1e.setForeground(Color.BLACK);
 									yMm1 = x0M;
 									if (x1Mp < yMm1)
 									{
@@ -703,6 +842,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0M > 0 && x1S > 0)
 								{
 									r2.setSelected(true);
+									r2e.setForeground(Color.BLACK);
 									yM1 = x0M;
 									if (x1S < yM1)
 									{
@@ -712,6 +852,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0M > 0 && x1Dm > 0)
 								{
 									r3.setSelected(true);
+									r3e.setForeground(Color.BLACK);
 									yMp1 = x0M;
 									if (x1Dm < yMp1)
 									{
@@ -721,6 +862,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0M > 0 && x1D > 0)
 								{
 									r4.setSelected(true);
+									r4e.setForeground(Color.BLACK);
 									yS1 = x0M;
 									if (x1D < yS1)
 									{
@@ -730,6 +872,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Mp > 0 && x1M > 0)
 								{
 									r5.setSelected(true);
+									r5e.setForeground(Color.BLACK);
 									yMm2 = x0Mp;
 									if (x1M < yMm2)
 									{
@@ -739,6 +882,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Mp > 0 && x1Mp > 0)
 								{
 									r6.setSelected(true);
+									r6e.setForeground(Color.BLACK);
 									yM2 = x0Mp;
 									if (x1Mp < yM2)
 									{
@@ -748,6 +892,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Mp > 0 && x1S > 0)
 								{
 									r7.setSelected(true);
+									r7e.setForeground(Color.BLACK);
 									yMp2 = x0Mp;
 									if (x1S < yMp2)
 									{
@@ -757,6 +902,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Mp > 0 && x1Dm > 0)
 								{
 									r8.setSelected(true);
+									r8e.setForeground(Color.BLACK);
 									yS2 = x0Mp;
 									if (x1Dm < yS2)
 									{
@@ -766,6 +912,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Mp > 0 && x1D > 0)
 								{
 									r9.setSelected(true);
+									r9e.setForeground(Color.BLACK);
 									yDm1 = x0Mp;
 									if (x1D < yDm1)
 									{
@@ -775,6 +922,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0S > 0 && x1M > 0)
 								{
 									r10.setSelected(true);
+									r10e.setForeground(Color.BLACK);
 									yM3 = x0S;
 									if (x1M < yM3)
 									{
@@ -784,6 +932,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0S > 0 && x1Mp > 0)
 								{
 									r11.setSelected(true);
+									r11e.setForeground(Color.BLACK);
 									yMp3 = x0S;
 									if (x1Mp < yMp3)
 									{
@@ -793,6 +942,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0S > 0 && x1S > 0)
 								{
 									r12.setSelected(true);
+									r12e.setForeground(Color.BLACK);
 									yS3 = x0S;
 									if (x1S < yS3)
 									{
@@ -802,6 +952,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0S > 0 && x1Dm > 0)
 								{
 									r13.setSelected(true);
+									r13e.setForeground(Color.BLACK);
 									yDm2 = x0S;
 									if (x1Dm < yDm2)
 									{
@@ -811,6 +962,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0S > 0 && x1D > 0)
 								{
 									r14.setSelected(true);
+									r14e.setForeground(Color.BLACK);
 									yD1 = x0S;
 									if (x1D < yD1)
 									{
@@ -820,6 +972,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Dm > 0 && x1M > 0)
 								{
 									r15.setSelected(true);
+									r15e.setForeground(Color.BLACK);
 									yMp4 = x0Dm;
 									if (x1M < yMp4)
 									{
@@ -829,6 +982,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Dm > 0 && x1Mp > 0)
 								{
 									r16.setSelected(true);
+									r16e.setForeground(Color.BLACK);
 									yS4 = x0Dm;
 									if (x1Mp < yS4)
 									{
@@ -838,6 +992,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Dm > 0 && x1S > 0)
 								{
 									r17.setSelected(true);
+									r17e.setForeground(Color.BLACK);
 									yDm3 = x0Dm;
 									if (x1S < yDm3)
 									{
@@ -847,6 +1002,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Dm > 0 && x1Dm > 0)
 								{
 									r18.setSelected(true);
+									r18e.setForeground(Color.BLACK);
 									yD2 = x0Dm;
 									if (x1Dm < yD2)
 									{
@@ -856,6 +1012,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Dm > 0 && x1D > 0)
 								{
 									r19.setSelected(true);
+									r19e.setForeground(Color.BLACK);
 									yDp1 = x0Dm;
 									if (x1D < yDp1)
 									{
@@ -865,6 +1022,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0D > 0 && x1M > 0)
 								{
 									r20.setSelected(true);
+									r20e.setForeground(Color.BLACK);
 									yS5 = x0D;
 									if (x1M < yS5)
 									{
@@ -874,6 +1032,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0D > 0 && x1Mp > 0)
 								{
 									r21.setSelected(true);
+									r21e.setForeground(Color.BLACK);
 									yDm4 = x0D;
 									if (x1Mp < yDm4)
 									{
@@ -883,6 +1042,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0D > 0 && x1S > 0)
 								{
 									r22.setSelected(true);
+									r22e.setForeground(Color.BLACK);
 									yD3 = x0D;
 									if (x1S < yD3)
 									{
@@ -892,6 +1052,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0D > 0 && x1Dm > 0)
 								{
 									r23.setSelected(true);
+									r23e.setForeground(Color.BLACK);
 									yDp2 = x0D;
 									if (x1Dm < yDp2)
 									{
@@ -901,6 +1062,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0D > 0 && x1D > 0)
 								{
 									r24.setSelected(true);
+									r24e.setForeground(Color.BLACK);
 									yBD = x0D;
 									if (x1D < yBD)
 									{
@@ -1092,6 +1254,30 @@ public class PawelDesigner extends JFrame implements ActionListener
 					JRadioButton r11 = new JRadioButton();
 					r11.setEnabled(false);
 					panel.add(r11);
+					JLabel r0e = new JLabel("R0: IF X0 = M AND X1 = M THEN Y0 = BM");
+					panel.add(r0e);
+					JLabel r1e = new JLabel("R1: IF X0 = M AND X1 = S THEN Y0 = M");
+					panel.add(r1e);
+					JLabel r2e = new JLabel("R2: IF X0 = M AND X1 = D THEN Y0 = S");
+					panel.add(r2e);
+					JLabel r3e = new JLabel("R3: IF X0 = S AND X1 = M THEN Y0 = M");
+					panel.add(r3e);
+					JLabel r4e = new JLabel("R4: IF X0 = S AND X1 = S THEN Y0 = S");
+					panel.add(r4e);
+					JLabel r5e = new JLabel("R5: IF X0 = S AND X1 = D THEN Y0 = D");
+					panel.add(r5e);
+					JLabel r6e = new JLabel("R6: IF X0 = D AND X1 = M THEN Y0 = S");
+					panel.add(r6e);
+					JLabel r7e = new JLabel("R7: IF X0 = D AND X1 = S THEN Y0 = D");
+					panel.add(r7e);
+					JLabel r8e = new JLabel("R8: IF X0 = D AND X1 = D THEN Y0 = BD");
+					panel.add(r8e);
+					JLabel r9e = new JLabel("R9: IF X2 = M THEN Y0 = M");
+					panel.add(r9e);
+					JLabel r10e = new JLabel("R10: IF X2 = S THEN Y0 = S");
+					panel.add(r10e);
+					JLabel r11e = new JLabel("            R11: IF X2 = D THEN Y0 = D            ");
+					panel.add(r11e);
 					JLabel etykietay0 = new JLabel("           Y0");
 					panel.add(etykietay0);
 					JProgressBar pasek0 = new JProgressBar();
@@ -1121,6 +1307,18 @@ public class PawelDesigner extends JFrame implements ActionListener
 								r9.setSelected(false);
 								r10.setSelected(false);
 								r11.setSelected(false);
+								r0e.setForeground(Color.LIGHT_GRAY);
+								r1e.setForeground(Color.LIGHT_GRAY);
+								r2e.setForeground(Color.LIGHT_GRAY);
+								r3e.setForeground(Color.LIGHT_GRAY);
+								r4e.setForeground(Color.LIGHT_GRAY);
+								r5e.setForeground(Color.LIGHT_GRAY);
+								r6e.setForeground(Color.LIGHT_GRAY);
+								r7e.setForeground(Color.LIGHT_GRAY);
+								r8e.setForeground(Color.LIGHT_GRAY);
+								r9e.setForeground(Color.LIGHT_GRAY);
+								r10e.setForeground(Color.LIGHT_GRAY);
+								r11e.setForeground(Color.LIGHT_GRAY);
 								int x0 = slider0.getValue();
 								double x0M = 0, x0S = 0, x0D = 0;
 								if (x0 == 0)
@@ -1299,6 +1497,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0M > 0 && x1M > 0)
 								{
 									r0.setSelected(true);
+									r0e.setForeground(Color.BLACK);
 									yBM = x0M;
 									if (x1M < yBM)
 									{
@@ -1308,6 +1507,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0M > 0 && x1S > 0)
 								{
 									r1.setSelected(true);
+									r1e.setForeground(Color.BLACK);
 									yM1 = x0M;
 									if (x1S < yM1)
 									{
@@ -1317,6 +1517,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0M > 0 && x1D > 0)
 								{
 									r2.setSelected(true);
+									r2e.setForeground(Color.BLACK);
 									yS1 = x0M;
 									if (x1D < yS1)
 									{
@@ -1326,6 +1527,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0S > 0 && x1M > 0)
 								{
 									r3.setSelected(true);
+									r3e.setForeground(Color.BLACK);
 									yM2 = x0S;
 									if (x1M < yM2)
 									{
@@ -1335,6 +1537,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0S > 0 && x1S > 0)
 								{
 									r4.setSelected(true);
+									r4e.setForeground(Color.BLACK);
 									yS2 = x0S;
 									if (x1S < yS2)
 									{
@@ -1344,6 +1547,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0S > 0 && x1D > 0)
 								{
 									r5.setSelected(true);
+									r5e.setForeground(Color.BLACK);
 									yD1 = x0S;
 									if (x1D < yD1)
 									{
@@ -1353,6 +1557,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0D > 0 && x1M > 0)
 								{
 									r6.setSelected(true);
+									r6e.setForeground(Color.BLACK);
 									yS3 = x0D;
 									if (x1M < yS3)
 									{
@@ -1362,6 +1567,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0D > 0 && x1S > 0)
 								{
 									r7.setSelected(true);
+									r7e.setForeground(Color.BLACK);
 									yD2 = x0D;
 									if (x1S < yD2)
 									{
@@ -1371,6 +1577,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0D > 0 && x1D > 0)
 								{
 									r8.setSelected(true);
+									r8e.setForeground(Color.BLACK);
 									yBD = x0D;
 									if (x1D < yBD)
 									{
@@ -1380,16 +1587,19 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x2M > 0)
 								{
 									r9.setSelected(true);
+									r9e.setForeground(Color.BLACK);
 									yM3 = x2M;
 								}
 								if (x2S > 0)
 								{
 									r10.setSelected(true);
+									r10e.setForeground(Color.BLACK);
 									yS4 = x2S;
 								}
 								if (x2D > 0)
 								{
 									r11.setSelected(true);
+									r11e.setForeground(Color.BLACK);
 									yD3 = x2D;
 								}
 								double yM = 0, yS = 0, yD = 0;
@@ -1626,6 +1836,96 @@ public class PawelDesigner extends JFrame implements ActionListener
 					JRadioButton r29 = new JRadioButton();
 					r29.setEnabled(false);
 					panel.add(r29);
+					JLabel r0e = new JLabel("R0: IF X0 = M AND X1 = M THEN Y0 = BM");
+					r0e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r0e);
+					JLabel r1e = new JLabel("R1: IF X0 = M AND X1 = M+ THEN Y0 = M-");
+					r1e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r1e);
+					JLabel r2e = new JLabel("R2: IF X0 = M AND X1 = S THEN Y0 = M");
+					r2e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r2e);
+					JLabel r3e = new JLabel("R3: IF X0 = M AND X1 = D- THEN Y0 = M+");
+					r3e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r3e);
+					JLabel r4e = new JLabel("R4: IF X0 = M AND X1 = D THEN Y0 = S");
+					r4e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r4e);
+					JLabel r5e = new JLabel("R5: IF X0 = M+ AND X1 = M THEN Y0 = M-");
+					r5e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r5e);
+					JLabel r6e = new JLabel("R6: IF X0 = M+ AND X1 = M+ THEN Y0 = M");
+					r6e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r6e);
+					JLabel r7e = new JLabel("R7: IF X0 = M+ AND X1 = S THEN Y0 = M+");
+					r7e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r7e);
+					JLabel r8e = new JLabel("R8: IF X0 = M+ AND X1 = D- THEN Y0 = S");
+					r8e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r8e);
+					JLabel r9e = new JLabel("R9: IF X0 = M+ AND X1 = D THEN Y0 = D-");
+					r9e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r9e);
+					JLabel r10e = new JLabel("R10: IF X0 = S AND X1 = M THEN Y0 = M");
+					r10e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r10e);
+					JLabel r11e = new JLabel("R11: IF X0 = S AND X1 = M+ THEN Y0 = M+");
+					r11e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r11e);
+					JLabel r12e = new JLabel("R12: IF X0 = S AND X1 = S THEN Y0 = S");
+					r12e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r12e);
+					JLabel r13e = new JLabel("R13: IF X0 = S AND X1 = D- THEN Y0 = D-");
+					r13e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r13e);
+					JLabel r14e = new JLabel("R14: IF X0 = S AND X1 = D THEN Y0 = D");
+					r14e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r14e);
+					JLabel r15e = new JLabel("R15: IF X0 = D- AND X1 = M THEN Y0 = M+");
+					r15e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r15e);
+					JLabel r16e = new JLabel("R16: IF X0 = D- AND X1 = M+ THEN Y0 = S");
+					r16e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r16e);
+					JLabel r17e = new JLabel("R17: IF X0 = D- AND X1 = S THEN Y0 = D-");
+					r17e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r17e);
+					JLabel r18e = new JLabel("R18: IF X0 = D- AND X1 = D- THEN Y0 = D");
+					r18e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r18e);
+					JLabel r19e = new JLabel("R19: IF X0 = D- AND X1 = D THEN Y0 = D+");
+					r19e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r19e);
+					JLabel r20e = new JLabel("R20: IF X0 = D AND X1 = M THEN Y0 = S");
+					r20e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r20e);
+					JLabel r21e = new JLabel("R21: IF X0 = D AND X1 = M+ THEN Y0 = D-");
+					r21e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r21e);
+					JLabel r22e = new JLabel("R22: IF X0 = D AND X1 = S THEN Y0 = D");
+					r22e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r22e);
+					JLabel r23e = new JLabel("R23: IF X0 = D AND X1 = D- THEN Y0 = D+");
+					r23e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r23e);
+					JLabel r24e = new JLabel("R24: IF X0 = D AND X1 = D THEN Y0 = BD");
+					r24e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r24e);
+					JLabel r25e = new JLabel("R25: IF X2 = M THEN Y0 = M");
+					r25e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r25e);
+					JLabel r26e = new JLabel("R26: IF X2 = M+ THEN Y0 = M+");
+					r26e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r26e);
+					JLabel r27e = new JLabel("R27: IF X2 = S THEN Y0 = S");
+					r27e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r27e);
+					JLabel r28e = new JLabel("R28: IF X2 = D- THEN Y0 = D-");
+					r28e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r28e);
+					JLabel r29e = new JLabel("            R29: IF X2 = D THEN Y0 = D            ");
+					r29e.setFont(new Font("Dialog", Font.BOLD, 10));
+					panel.add(r29e);
 					JLabel etykietay0 = new JLabel("           Y0");
 					panel.add(etykietay0);
 					JProgressBar pasek0 = new JProgressBar();
@@ -1678,6 +1978,36 @@ public class PawelDesigner extends JFrame implements ActionListener
 								r27.setSelected(false);
 								r28.setSelected(false);
 								r29.setSelected(false);
+								r0e.setForeground(Color.LIGHT_GRAY);
+								r1e.setForeground(Color.LIGHT_GRAY);
+								r2e.setForeground(Color.LIGHT_GRAY);
+								r3e.setForeground(Color.LIGHT_GRAY);
+								r4e.setForeground(Color.LIGHT_GRAY);
+								r5e.setForeground(Color.LIGHT_GRAY);
+								r6e.setForeground(Color.LIGHT_GRAY);
+								r7e.setForeground(Color.LIGHT_GRAY);
+								r8e.setForeground(Color.LIGHT_GRAY);
+								r9e.setForeground(Color.LIGHT_GRAY);
+								r10e.setForeground(Color.LIGHT_GRAY);
+								r11e.setForeground(Color.LIGHT_GRAY);
+								r12e.setForeground(Color.LIGHT_GRAY);
+								r13e.setForeground(Color.LIGHT_GRAY);
+								r14e.setForeground(Color.LIGHT_GRAY);
+								r15e.setForeground(Color.LIGHT_GRAY);
+								r16e.setForeground(Color.LIGHT_GRAY);
+								r17e.setForeground(Color.LIGHT_GRAY);
+								r18e.setForeground(Color.LIGHT_GRAY);
+								r19e.setForeground(Color.LIGHT_GRAY);
+								r20e.setForeground(Color.LIGHT_GRAY);
+								r21e.setForeground(Color.LIGHT_GRAY);
+								r22e.setForeground(Color.LIGHT_GRAY);
+								r23e.setForeground(Color.LIGHT_GRAY);
+								r24e.setForeground(Color.LIGHT_GRAY);
+								r25e.setForeground(Color.LIGHT_GRAY);
+								r26e.setForeground(Color.LIGHT_GRAY);
+								r27e.setForeground(Color.LIGHT_GRAY);
+								r28e.setForeground(Color.LIGHT_GRAY);
+								r29e.setForeground(Color.LIGHT_GRAY);
 								int x0 = slider0.getValue();
 								double x0M = 0, x0Mp = 0, x0S = 0, x0Dm = 0, x0D = 0;
 								if (x0 == 0)
@@ -1860,6 +2190,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0M > 0 && x1M > 0)
 								{
 									r0.setSelected(true);
+									r0e.setForeground(Color.BLACK);
 									yBM = x0M;
 									if (x1M < yBM)
 									{
@@ -1869,6 +2200,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0M > 0 && x1Mp > 0)
 								{
 									r1.setSelected(true);
+									r1e.setForeground(Color.BLACK);
 									yMm1 = x0M;
 									if (x1Mp < yMm1)
 									{
@@ -1878,6 +2210,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0M > 0 && x1S > 0)
 								{
 									r2.setSelected(true);
+									r2e.setForeground(Color.BLACK);
 									yM1 = x0M;
 									if (x1S < yM1)
 									{
@@ -1887,6 +2220,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0M > 0 && x1Dm > 0)
 								{
 									r3.setSelected(true);
+									r3e.setForeground(Color.BLACK);
 									yMp1 = x0M;
 									if (x1Dm < yMp1)
 									{
@@ -1896,6 +2230,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0M > 0 && x1D > 0)
 								{
 									r4.setSelected(true);
+									r4e.setForeground(Color.BLACK);
 									yS1 = x0M;
 									if (x1D < yS1)
 									{
@@ -1905,6 +2240,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Mp > 0 && x1M > 0)
 								{
 									r5.setSelected(true);
+									r5e.setForeground(Color.BLACK);
 									yMm2 = x0Mp;
 									if (x1M < yMm2)
 									{
@@ -1914,6 +2250,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Mp > 0 && x1Mp > 0)
 								{
 									r6.setSelected(true);
+									r6e.setForeground(Color.BLACK);
 									yM2 = x0Mp;
 									if (x1Mp < yM2)
 									{
@@ -1923,6 +2260,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Mp > 0 && x1S > 0)
 								{
 									r7.setSelected(true);
+									r7e.setForeground(Color.BLACK);
 									yMp2 = x0Mp;
 									if (x1S < yMp2)
 									{
@@ -1932,6 +2270,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Mp > 0 && x1Dm > 0)
 								{
 									r8.setSelected(true);
+									r8e.setForeground(Color.BLACK);
 									yS2 = x0Mp;
 									if (x1Dm < yS2)
 									{
@@ -1941,6 +2280,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Mp > 0 && x1D > 0)
 								{
 									r9.setSelected(true);
+									r9e.setForeground(Color.BLACK);
 									yDm1 = x0Mp;
 									if (x1D < yDm1)
 									{
@@ -1950,6 +2290,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0S > 0 && x1M > 0)
 								{
 									r10.setSelected(true);
+									r10e.setForeground(Color.BLACK);
 									yM3 = x0S;
 									if (x1M < yM3)
 									{
@@ -1959,6 +2300,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0S > 0 && x1Mp > 0)
 								{
 									r11.setSelected(true);
+									r11e.setForeground(Color.BLACK);
 									yMp3 = x0S;
 									if (x1Mp < yMp3)
 									{
@@ -1968,6 +2310,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0S > 0 && x1S > 0)
 								{
 									r12.setSelected(true);
+									r12e.setForeground(Color.BLACK);
 									yS3 = x0S;
 									if (x1S < yS3)
 									{
@@ -1977,6 +2320,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0S > 0 && x1Dm > 0)
 								{
 									r13.setSelected(true);
+									r13e.setForeground(Color.BLACK);
 									yDm2 = x0S;
 									if (x1Dm < yDm2)
 									{
@@ -1986,6 +2330,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0S > 0 && x1D > 0)
 								{
 									r14.setSelected(true);
+									r14e.setForeground(Color.BLACK);
 									yD1 = x0S;
 									if (x1D < yD1)
 									{
@@ -1995,6 +2340,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Dm > 0 && x1M > 0)
 								{
 									r15.setSelected(true);
+									r15e.setForeground(Color.BLACK);
 									yMp4 = x0Dm;
 									if (x1M < yMp4)
 									{
@@ -2004,6 +2350,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Dm > 0 && x1Mp > 0)
 								{
 									r16.setSelected(true);
+									r16e.setForeground(Color.BLACK);
 									yS4 = x0Dm;
 									if (x1Mp < yS4)
 									{
@@ -2013,6 +2360,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Dm > 0 && x1S > 0)
 								{
 									r17.setSelected(true);
+									r17e.setForeground(Color.BLACK);
 									yDm3 = x0Dm;
 									if (x1S < yDm3)
 									{
@@ -2022,6 +2370,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Dm > 0 && x1Dm > 0)
 								{
 									r18.setSelected(true);
+									r18e.setForeground(Color.BLACK);
 									yD2 = x0Dm;
 									if (x1Dm < yD2)
 									{
@@ -2031,6 +2380,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0Dm > 0 && x1D > 0)
 								{
 									r19.setSelected(true);
+									r19e.setForeground(Color.BLACK);
 									yDp1 = x0Dm;
 									if (x1D < yDp1)
 									{
@@ -2040,6 +2390,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0D > 0 && x1M > 0)
 								{
 									r20.setSelected(true);
+									r20e.setForeground(Color.BLACK);
 									yS5 = x0D;
 									if (x1M < yS5)
 									{
@@ -2049,6 +2400,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0D > 0 && x1Mp > 0)
 								{
 									r21.setSelected(true);
+									r21e.setForeground(Color.BLACK);
 									yDm4 = x0D;
 									if (x1Mp < yDm4)
 									{
@@ -2058,6 +2410,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0D > 0 && x1S > 0)
 								{
 									r22.setSelected(true);
+									r22e.setForeground(Color.BLACK);
 									yD3 = x0D;
 									if (x1S < yD3)
 									{
@@ -2067,6 +2420,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0D > 0 && x1Dm > 0)
 								{
 									r23.setSelected(true);
+									r23e.setForeground(Color.BLACK);
 									yDp2 = x0D;
 									if (x1Dm < yDp2)
 									{
@@ -2076,6 +2430,7 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x0D > 0 && x1D > 0)
 								{
 									r24.setSelected(true);
+									r24e.setForeground(Color.BLACK);
 									yBD = x0D;
 									if (x1D < yBD)
 									{
@@ -2085,26 +2440,31 @@ public class PawelDesigner extends JFrame implements ActionListener
 								if (x2M > 0)
 								{
 									r25.setSelected(true);
+									r25e.setForeground(Color.BLACK);
 									yM4 = x2M;
 								}
 								if (x2Mp > 0)
 								{
 									r26.setSelected(true);
+									r26e.setForeground(Color.BLACK);
 									yMp5 = x2Mp;
 								}
 								if (x2S > 0)
 								{
 									r27.setSelected(true);
+									r27e.setForeground(Color.BLACK);
 									yS6 = x2S;
 								}
 								if (x2Dm > 0)
 								{
 									r28.setSelected(true);
+									r28e.setForeground(Color.BLACK);
 									yDm5 = x2Dm;
 								}
 								if (x2D > 0)
 								{
 									r29.setSelected(true);
+									r29e.setForeground(Color.BLACK);
 									yD4 = x2D;
 								}
 								double yMm = 0, yM = 0, yMp = 0, yS = 0, yDm = 0, yD = 0, yDp = 0;
